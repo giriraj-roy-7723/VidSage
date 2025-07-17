@@ -1,0 +1,18 @@
+/* App.css - Global reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #0d0d0d;
+}
+/* App.css */
+#app-container > *:not(.stars) {
+  position: relative;
+  z-index: 1;
+}

@@ -37,7 +37,7 @@ def process_video(input_data: VideoInput):
 
     if result["status"] == "error":
         return {"status": "failed", "error": result["message"]}
-
+    
     return {
         "status": "video downloaded",
         "video_path": result["filepath"],

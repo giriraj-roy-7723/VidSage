@@ -1,0 +1,92 @@
+
+.heroine p {
+  color: #fff;
+  text-align: center;
+  max-width: 700px;
+  margin: 6rem auto 2rem auto;
+  font-size: 1.1rem;
+  background: linear-gradient(to right, #8ec5fc, #e0c3fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 500;
+}
+
+
+.question-answer-container {
+  max-width: 600px;
+  margin: 4rem auto 3rem auto; /* increased top margin */
+  padding: 30px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  color: white;
+  font-family: 'Outfit', sans-serif;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.question-answer-container h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+  background: linear-gradient(to right, #f69d3c, #3f87a6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.question-answer-container input {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 1rem;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+}
+
+.question-answer-container input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.question-answer-container input:focus {
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3);
+}
+
+.question-answer-container button {
+  padding: 10px 20px;
+    background: linear-gradient(to right, #f69d3c, #3f87a6);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+  transition: transform 0.2s ease;
+}
+
+.question-answer-container button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+}
+
+.question-answer-container button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.answer-container {
+  margin-top: 25px;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  border-radius: 12px;
+  font-size: 1rem;
+  color: #e0e0e0;
+  white-space: pre-wrap;
+}

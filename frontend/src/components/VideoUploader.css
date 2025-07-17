@@ -1,0 +1,93 @@
+.heroine {
+  max-width: 800px;
+  margin: 4rem auto 2rem auto;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.heroine p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #cccccc;
+  background: linear-gradient(to right, #e0aaff, #bde0fe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+
+.video-uploader {
+  max-width: 600px;
+  margin: 4rem auto 3rem auto; /* increased top margin */
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  font-family: 'Outfit', sans-serif;
+  text-align: center;
+}
+
+.video-uploader h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+  background: linear-gradient(to right, #f69d3c, #3f87a6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.video-uploader input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  transition: background 0.3s ease;
+}
+
+.video-uploader input::placeholder {
+  color: #ccc;
+}
+
+.video-uploader input:focus {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.video-uploader button {
+  padding: 0.8rem 2rem;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(to right, #3f87a6, #f69d3c);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.video-uploader button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+}
+
+.video-uploader button:disabled {
+  background: #666;
+  cursor: not-allowed;
+}
+
+.video-uploader p {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #fff;
+}

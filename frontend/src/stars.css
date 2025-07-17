@@ -1,0 +1,56 @@
+.stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.star {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffffff, #ffffff10);
+  box-shadow: 0 0 10px rgba(255, 251, 1, 0.9),
+              0 0 20px rgb(234, 247, 4),
+              0 0 30px rgba(240, 244, 4, 0.982);
+  filter: brightness(5.4);
+  opacity: 0.85;
+}
+
+.star.small {
+  width: 2.2px;
+  height: 2.2px;
+}
+
+.star.medium {
+  width: 3px;
+  height: 3px;
+}
+
+.star.large {
+  width: 3.5px;
+  height: 0.5px;
+}
+
+@keyframes twinkle {
+  0% {
+    opacity: 0.3;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes drift {
+  0% {
+    transform: translateY(100px);
+  }
+  100% {
+    transform: translateY(-100px);
+  }
+}

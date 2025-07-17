@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import api from '../api';
+import './QuestionAnswer.css';
 
 function QuestionAnswer() {
   const [question, setQuestion] = useState('');
@@ -13,29 +14,39 @@ function QuestionAnswer() {
       const res = await api.post('/ask', { question });
       setAnswer(res.data.answer);
     } catch (err) {
-      setAnswer('Failed to get answer.');
+      setAnswer('⚠️ Sorry, I couldn’t fetch an answer. Please try again.');
     }
     setLoading(false);
   };
 
   return (
-    <div>
-      <h3>Ask a Question</h3>
-      <input
-        type="text"
-        placeholder="Ask something about the video..."
-        value={question}
-        onChange={(e) => setQuestion(e.target.value)}
-      />
-      <button onClick={handleAsk} disabled={loading}>
-        {loading ? 'Asking...' : 'Ask'}
-      </button>
-      {answer && (
-        <div>
-          <strong>Answer:</strong>
-          <p>{answer}</p>
-        </div>
-      )}
+    <div className="heroine">
+      <p>
+         Hi, I'm your AI video assistant!<br />
+        Ask me anything about the uploaded YouTube video — from key takeaways to deeper insights and lots of questions that's brooding over oyur mind!<br />
+      </p>
+
+      <div className="question-answer-container">
+        <h3>Chat With Your Video</h3>
+
+        <input
+          type="text"
+          placeholder="E.g. What is the main topic of the video?"
+          value={question}
+          onChange={(e) => setQuestion(e.target.value)}
+        />
+
+        <button onClick={handleAsk} disabled={loading}>
+          {loading ? 'Thinking...' : 'Ask'}
+        </button>
+
+        {answer && (
+          <div className="answer-container">
+            <strong>Answer:</strong>
+            <p>{answer}</p>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

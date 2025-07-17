@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import './Summary.css';
+import ReactMarkdown from 'react-markdown';
+
 
 function Summary() {
   const [data, setData] = useState(null);
@@ -30,23 +33,36 @@ function Summary() {
   };
 
   return (
-    <div className="p-6 max-w-4xl mx-auto space-y-6">
-      <button
-        onClick={handleGenerate}
-        className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg shadow-md transition"
-        disabled={loading}
-      >
-        {loading ? "Generating..." : "Generate Summary"}
-      </button>
+    <div className="heroine">
+      <p>
+        Want detailed notes for your uploaded video?<br />
+        I'm your AI notetaker — just hit the button below and get your detailed summary ready!<br />
+        Perfect for revision, content repurposing, or study.
+      </p>
 
-      {error && <div className="text-red-600 mt-4">{error}</div>}
+      <div className="summary-container">
+        <h2 className="summary-heading"> Smart Video Summary</h2>
 
-      {data && (
-        <div className="bg-gray-50 shadow-md rounded-xl p-6 mt-6">
-          <h2 className="text-xl font-bold mb-2">📋 Detailed Summary</h2>
-          <pre className="whitespace-pre-wrap text-gray-800 text-sm">{data.summary_notes}</pre>
-        </div>
-      )}
+        <button
+          onClick={handleGenerate}
+          className="summary-button"
+          disabled={loading}
+        >
+          {loading ? "⏳ Generating..." : " Generate Summary"}
+        </button>
+
+        {error && <div className="summary-error">{error}</div>}
+
+        {data && (
+          <div className="summary-result">
+            <h3 className="summary-title"> Detailed Summary</h3>
+
+            <div className="summary-text">
+              <ReactMarkdown>{data.summary_notes}</ReactMarkdown>
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

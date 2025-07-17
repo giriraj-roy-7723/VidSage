@@ -1,0 +1,69 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 70px;
+  padding: 0 2rem;
+  background: linear-gradient(to right, #0e0e0e, #1a292f, #080808); /* cosmic gradient */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 15px rgba(241, 249, 182, 0.988);
+  z-index: 999;
+  overflow: hidden;
+}
+
+/* Animated stars */
+.navbar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  background-image: radial-gradient(white 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: moveStars 60s linear infinite;
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+@keyframes moveStars {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.hero {
+  padding-top: 60px; /* same as navbar height */
+}
+
+.logo a {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ffeb3b; /* golden-yellow for celestial vibe */
+  text-decoration: none;
+  text-shadow: 1px 1px 3px black;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: border-bottom 0.2s ease;
+  padding: 0.3rem 0;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  border-bottom: 2px solid #ffeb3b;
+}
