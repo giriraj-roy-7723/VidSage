@@ -1,13 +1,16 @@
 
 .heroine p {
-  color: #fff;
+  color: transparent; /* fallback for linters */
   text-align: center;
   max-width: 700px;
   margin: 6rem auto 2rem auto;
   font-size: 1.1rem;
   background: linear-gradient(to right, #8ec5fc, #e0c3fc);
+  
+  background-clip: text; /* fallback */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+
   font-weight: 500;
 }
 

@@ -51,10 +51,18 @@
   font-size: 2rem;
   margin-bottom: 1.5rem;
   background: linear-gradient(to right, #f69d3c, #3f87a6);
+
+  /* Proper text clipping setup */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+
+  /* Fallbacks (optional but safe) */
+  background-clip: text;
+  color: transparent;
+
   font-weight: 700;
 }
+
 
 .summary-button {
   display: block;

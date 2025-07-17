@@ -41,7 +41,7 @@ function VideoUploader() {
         />
         <br />
         <button onClick={handleUpload} disabled={loading}>
-          {loading ? 'Uploading...' : 'Upload'}
+          {loading ? 'Have Patience...' : 'Upload'}
         </button>
 
         {metadata && (

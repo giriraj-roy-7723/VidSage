@@ -4,7 +4,7 @@ import whisper
 
 def extract_audio_from_video(video_path: str, audio_path: str) -> None:
     """
-    Extracts audio from the video and saves it as a WAV file.
+    Extracts audio from the video and saves it as a wav file.
     """
     os.makedirs(os.path.dirname(audio_path), exist_ok=True)
     print(f"[INFO] Extracting audio from {video_path}...")
@@ -15,12 +15,12 @@ def extract_audio_from_video(video_path: str, audio_path: str) -> None:
 
 def transcribe_audio(audio_path: str, output_text_path: str) -> str:
     """
-    Transcribes the audio using open-source Whisper and saves the text.
+    transcribes the audio using open-source Whisper and saves the text.
     """
-    print(f"[INFO] Loading Whisper model...")
-    model = whisper.load_model("base")  #or "tiny" for faster, "small"/"medium"/"large" for better accuracy
+    print(f"loading Whisper model...")
+    model = whisper.load_model("base") 
 
-    print(f"[INFO] Transcribing audio from {audio_path}...")
+    print(f"transcribing audio from {audio_path}...")
     result = model.transcribe(audio_path)
 
     text = result["text"]
@@ -28,13 +28,12 @@ def transcribe_audio(audio_path: str, output_text_path: str) -> str:
     with open(output_text_path, "w", encoding="utf-8") as f:
         f.write(text)
 
-    print(f"[INFO] Transcription saved to {output_text_path}")
+    print(f"transcription saved to {output_text_path}")
     return text
 
 
 def extract_and_transcribe(video_path: str, working_dir: str = "data/video_data") -> dict:
-    """
-    Combines audio extraction and transcription into one step.
+    """combines audio extraction and transcription into one step.
     Returns the transcription and output paths.
     """
     base_name = os.path.splitext(os.path.basename(video_path))[0]

@@ -5,7 +5,6 @@ from dotenv import load_dotenv
 load_dotenv()
 genai.configure(api_key="AIzaSyCKZT_t8wa0lIqFPvnD6FaYB0b13a9d6K4")
 
-# Initialize Gemini model
 model = genai.GenerativeModel("gemini-2.0-flash")
 
 def ask_question(question: str) -> str:

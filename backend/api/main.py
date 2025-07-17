@@ -10,12 +10,11 @@ from dotenv import load_dotenv
 import uuid
 import os
 
-# Load environment variables
 load_dotenv()
 genai.configure(api_key="AIzaSyCKZT_t8wa0lIqFPvnD6FaYB0b13a9d6K4")  
 model = genai.GenerativeModel("gemini-2.0-flash")
 
-# FastAPI instance
+
 app = FastAPI()
 
 
@@ -24,9 +23,7 @@ def read_root():
     return {"message": "VidSage API is running"}
 
 
-# ---------------------------
-# VIDEO DOWNLOAD
-# ---------------------------
+#download the vdo
 class VideoInput(BaseModel):
     video_url: str
 
@@ -49,9 +46,7 @@ def process_video(input_data: VideoInput):
     }
 
 
-# ---------------------------
-# AUDIO & TRANSCRIPTION
-# ---------------------------
+#extract the audio from vdo
 @app.post("/transcribe")
 def transcribe_video():
     video_path = os.path.join("backend", "data", "video_data", "input_vid.mp4")
@@ -61,8 +56,6 @@ def transcribe_video():
 
     result = extract_and_transcribe(video_path, working_dir=os.path.join("backend", "data", "video_data"))
     transcript = result["transcript"]
-
-    # Embed and store to LanceDB
     embed_model = SentenceTransformer("all-MiniLM-L6-v2")
     chunks = [transcript[i:i+300] for i in range(0, len(transcript), 300)]
 
@@ -72,7 +65,7 @@ def transcribe_video():
         "text": chunk,
         "embedding": embed_model.encode(chunk).tolist()
     } for chunk in chunks]
-    vs.table.delete("true")  # this clears all rows
+    vs.table.delete("true")  
     vs.add_many(data)
 
     return {
@@ -82,9 +75,7 @@ def transcribe_video():
     }
 
 
-# ---------------------------
-# GET TRANSCRIPT FILE
-# ---------------------------
+#fetching the audio converted file
 @app.get("/get-transcript")
 def get_transcript():
     transcript_path = os.path.join("backend", "data", "video_data", "input_vid.mp4_transcript.txt")
@@ -95,9 +86,7 @@ def get_transcript():
     return FileResponse(transcript_path, media_type="text/plain", filename="transcript.txt")
 
 
-# ---------------------------
-# ASK QUESTION USING GEMINI
-# ---------------------------
+#gemini call
 class QuestionInput(BaseModel):
     question: str
 
@@ -182,11 +171,10 @@ INSTRUCTIONS:
 from fastapi.middleware.cors import CORSMiddleware
 
 
-# Allow requests from the React frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # Adjust this to match your React dev server
+    allow_origins=["http://localhost:3000"],  #
     allow_credentials=True,
-    allow_methods=["*"],  # Allow all HTTP methods
-    allow_headers=["*"],  # Allow all headers
+    allow_methods=["*"],  
+    allow_headers=["*"],  
 )
